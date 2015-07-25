@@ -1,0 +1,19 @@
+{
+  "name": "codeigachi",
+  "version": "1.0.0",
+  "description": "magic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elizabethhalper/Codigachi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elizabethhalper/Codigachi/issues"
+  },
+  "homepage": "https://github.com/elizabethhalper/Codigachi#readme"
+}

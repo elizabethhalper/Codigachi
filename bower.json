@@ -1,0 +1,37 @@
+{
+  "name": "codigachi",
+  "version": "1.0.0",
+  "description": "whatever",
+  "main": [
+    "js/main.js",
+    "styles/main.css"
+  ],
+  "dependencies": {
+    "angular": "*",
+    "jquery": "*"
+  },
+  "devDependencies": {
+    "qunit": "~1.16.0"
+  },
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "code",
+    "is",
+    "queen",
+  ],
+  "authors": [
+    "Emily Smitley <emily.smitley@puppetlabs.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
