@@ -16,24 +16,38 @@ function settings() {
 }
 
 app.directive('workShop', [workShop]);
+
+function getImgUrl
+
 function workShop() {
   return {
     restrict: 'E',
     link: function(scope, element, attrs) {
+
+      scope.compileUrl = function(url) {
+        return url.replace(/\{\{color\}\}/gi, scope.robot.color)
+                  .replace(/\{\{size\}\}/gi, scope.robot.size)
+                  .replace(/\{\{clothes\}\}/gi, scope.robot.clothes);
+      };
+
       scope.robot = {
         currentState: '',
         currentPosition: [0, 0],
-        color: 'red'
+        color: 'red',
+        size: 'medium',
+        clothes: 'hat'
       };
 
       scope.robotStates = {
-        'static': 'url',
-        'dancing': function () {
-          return 'other url/' + scope.robot.color + '/asdf';
-        },
+        'original': scope.compileUrl('still/{{color}}{{size}}'),
+        'danceing': scope.compileUrl('dancing/{{color}}{{size}}'),
+        'running': scope.compileUrl('running/{{color}}{{size}}'),
+        'walking': scope.compileUrl('walking/{{color}}{{size}}'),
+        'bouncing': scope.compileUrl('bouncing/{{color}}{{size}}')
       };
 
       scope.robot.currentState = scope.robotStates['dancing']();
+
 
     }
   };
