@@ -34,8 +34,8 @@
           </form>
           <br>
           <form>
-            <label>Object name: </label>
-              <input type='text' name = 'var_name' />
+            <label>Object name: </label>"
+              <input type='text' name = 'var_name' ng-model="name"/>
         	    <!--input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>"/-->
           </form>
           <form>
@@ -102,6 +102,8 @@
           <p align="left" value="Class">Class</p>
           <br>
           <p align-"left">{</p>
+            <br>
+            <p>{{name}}</p>
           <br>
           <p align-"left">}</p>
           <br>

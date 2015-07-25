@@ -10,7 +10,14 @@ function settings() {
   return {
     restrict: 'E',
     link: function(scope, element, attrs) {
-        scope.name = "Lizzie";
+        scope.chosen =  {
+          class: '',
+          name: '',
+          clothes:'',
+          size: '',
+          color: '',
+          fnc: ''
+        };
     }
   };
 }
@@ -56,4 +63,6 @@ function codeView() {
 
     }
   };
+
+  app.service()
 }
