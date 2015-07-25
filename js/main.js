@@ -57,8 +57,8 @@ function workShop() {
       };
 
       scope.robotStates = {
-        'original': scope.compileUrl('static-url-{{color}}.png'),
-        'dancing': scope.compileUrl('dancing-url-{{color}}.gif')
+        'original': scope.compileUrl('images/static-url-{{color}}.png'),
+        'dancing': scope.compileUrl('images/dancing-url-{{color}}.gif')
       };
 
       scope.robot.currentState = scope.robotStates['original'];
