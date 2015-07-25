@@ -1,23 +1,44 @@
 var app = angular.module('codigachi', []);
 
+app.factory('settingsSrv', [function() {
+  var settings = {};
+
+  return {
+    set: function (options) {
+      console.log('yay!');
+      settings = options;
+    },
+    get: function () {
+      return settings;
+    }
+  };
+}]);
+
 app.controller('sharedCtrl', ['$scope', sharedCtrl]);
 function sharedCtrl(scope) {
 
 }
 
 app.directive('settings', [settings]);
-function settings() {
+settings.$inject = ['settingsSrv'];
+function settings(settingsSrv) {
   return {
     restrict: 'E',
     link: function(scope, element, attrs) {
-        scope.chosen =  {
-          class: '',
-          name: '',
-          clothes: [dress, shorts, hat],
-          size: [small, medium, large],
-          color: [purple, blue, green],
-          fnc: ''
-        };
+      scope.chosen =  {
+        cls: '',
+        name: '',
+        clothes: ['dress', 'shorts', 'hat'],
+        size: ['small', 'medium', 'large'],
+        color: ['purple', 'blue', 'green'],
+        fnc: ''
+      };
+
+      console.log(settingsSrv);
+
+      scope.$watch('chosen', function(newVal, oldVal) {
+        settingsSrv.set(newVal);
+      }, true);
     }
   };
 }
@@ -31,23 +52,16 @@ function workShop() {
       scope.robot = {
         currentState: '',
         currentPosition: [0, 0],
-        color: 'red',
-        // size: 'medium',
-        // clothes: 'hat'
-      };
-
-      scope.robotStates = {
-        'original': scope.compileUrl('still/{{color}}{{size}}'),
-        'danceing': scope.compileUrl('dancing/{{color}}{{size}}'),
-        'running': scope.compileUrl('running/{{color}}{{size}}'),
-        'walking': scope.compileUrl('walking/{{color}}{{size}}'),
-        'bouncing': scope.compileUrl('bouncing/{{color}}{{size}}')
+        color: 'grey'
       };
 
       scope.compileUrl = function(url) {
         return url.replace(/\{\{color\}\}/gi, scope.robot.color);
-                  // .replace(/\{\{size\}\}/gi, scope.robot.size)
-                  // .replace(/\{\{clothes\}\}/gi, scope.robot.clothes);
+      };
+
+      scope.robotStates = {
+        'original': scope.compileUrl('static-url-{{color}}.png'),
+        'dancing': scope.compileUrl('dancing-url-{{color}}.gif')
       };
 
       scope.robot.currentState = scope.robotStates['original'];
