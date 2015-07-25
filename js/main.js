@@ -17,7 +17,8 @@ app.directive('workShop', [workShop]);
 function workShop() {
   return {
     restrict: 'E',
-    template: '<div>this is where the workshop will go</div>'
+    template: '<div>this is where the workshop will go</div>',
+    controller: ''
   };
 }
 
