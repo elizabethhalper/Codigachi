@@ -25,12 +25,17 @@ function settings() {
     restrict: 'E',
     controller: ['$scope', 'settingsSrv', function(scope, settingsSrv) {
       scope.chosen =  {
-        cls: '',
+        selectedClass: { id: 0, name: 'Humanoid'},
+        classes: [
+          { id: 0, name: 'Humanoid'},
+          { id: 1, name: 'Puppy-bot'},
+          { id: 2, name: 'Penguin-bot'}
+        ],
         name: '',
         clothes: ['dress', 'shorts', 'hat'],
         size: ['small', 'medium', 'large'],
         color: ['purple', 'blue', 'green'],
-        fnc: ''
+        fnc: {id: 0, name: 'Dance'}
       };
 
       scope.$watch('chosen', function(newVal, oldVal) {
@@ -49,7 +54,7 @@ function workShop() {
       scope.robot = {
         currentState: '',
         currentPosition: [0, 0],
-        color: 'grey'
+        color: 'blue'
       };
 
       scope.compileUrl = function(url) {
@@ -57,14 +62,14 @@ function workShop() {
       };
 
       scope.robotStates = {
-        'original': scope.compileUrl('images/static-url-{{color}}.png'),
+        'original': scope.compileUrl('images/static-url-{{color}}.gif'),
         'dancing': scope.compileUrl('images/dancing-url-{{color}}.gif')
       };
 
       scope.robot.currentState = scope.robotStates['original'];
 
       scope.engineer = {
-        currentState: 'a url to the image for the engineer!!',
+        currentState: 'images/static-eng.gif',
         currentPosition: [0, 0]
       };
 

@@ -25,11 +25,10 @@
           <br>
           <form>
             <label>Class: </label>
-            <select ng-select="chosen.class">
-              <option name="class" value="robot">Robot</option>
-              <option name="class" value="puppy">Puppy</option>
-              <option name="class" value="penguin">Penguin</option>
-              <option name="class" value="tomagachi">Tamagochi</option>
+            <select ng-select="chosen.selectedClass">
+              <option name="class" value="robot">Humanoid</option>
+              <option name="class" value="puppy">Puppy-bot</option>
+              <option name="class" value="penguin">Penguin-bot</option>
             </select>
           </form>
           <br>
@@ -62,11 +61,7 @@
           </form>
           <form>
             <label>Functions: </label>
-            <select ng-model="chosen.function">
-              <option name="fnction" value="walk">Walk</option>
-              <option name="fnction" value="run">Run</option>
-              <option name="fnction" value="bounce">Bounce</option>
-              <option name="fnction" value="dance">Dance</option>
+            <select ng-model="chosen.fnc" ng-options="label for name in array">
             </select>
           </form>
           <p align="center"><a class="btn btn-social-icon btn-twitter" href="https://twitter.com/BittyByteBot"><i class="fa fa-twitter"></i></a>
@@ -74,8 +69,13 @@
       </div>
     </settings>
 
-    <work-shop class="col-md-6">
-
+    <work-shop class="col-sm-6">
+      <div class="robot character">
+        <img ng-src="{{robot.currentState}}">
+      </div>
+      <div class="audrey character">
+        <img ng-src="{{engineer.currentState}}">
+      </div>
     </work-shop>
 
     <code-view class="col-sm-2">
