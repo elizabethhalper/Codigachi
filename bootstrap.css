@@ -6810,3 +6810,15 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+/* making columns the same heights*/
+@media screen and (min-width: 769px) {
+  .row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+}
