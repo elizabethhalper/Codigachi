@@ -5,7 +5,6 @@ app.factory('settingsSrv', function() {
 
   return {
     set: function (options) {
-      console.log('yay!');
       settings = options;
     },
     get: function () {
@@ -33,8 +32,6 @@ function settings() {
         color: ['purple', 'blue', 'green'],
         fnc: ''
       };
-
-      console.log(settingsSrv);
 
       scope.$watch('chosen', function(newVal, oldVal) {
         settingsSrv.set(newVal);
