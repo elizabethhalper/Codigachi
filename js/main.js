@@ -1,4 +1,4 @@
-var app = angular.module('codeigatchi', []);
+var app = angular.module('codigachi', []);
 
 app.controller('sharedCtrl', ['$scope', sharedCtrl]);
 function sharedCtrl(scope) {
@@ -16,10 +16,12 @@ function settings() {
 }
 
 app.directive('workShop', [workShop]);
+
 function workShop() {
   return {
     restrict: 'E',
     link: function(scope, element, attrs) {
+
       scope.robot = {
         currentState: '',
         currentPosition: [0, 0],
@@ -28,12 +30,16 @@ function workShop() {
 
       scope.robotStates = {
         'static': 'url',
-        'dancing': function () {
-          return 'other url/' + scope.robot.color + '/asdf';
-        },
+        'dancing': 'url/{{color}}/asdfasdf',
       };
 
-      scope.robot.currentState = scope.robotStates['dancing']();
+      scope.robot.currentState = compileUrl(scope.robotStates['dancing']);
+
+
+      scope.engineer = {
+        currentState: 'a url to the image for the engineer!!',
+        currentPosition: [0, 0]
+      };
 
     }
   };
