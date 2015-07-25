@@ -25,11 +25,11 @@
           <br>
           <form>
             <label>Class: </label>
-            <select>
-              <option name="class" value="robot" ng-model="chosen.class">Robot</option>
-              <option name="class" value="puppy" ng-model="chosen.class">Puppy</option>
-              <option name="class" value="penguin" ng-model="chosen.class">Penguin</option>
-              <option name="class" value="tomagachi" ng-model="chosen.class">Tomgachi</option>
+            <select ng-select="chosen.class">
+              <option name="class" value="robot">Robot</option>
+              <option name="class" value="puppy">Puppy</option>
+              <option name="class" value="penguin">Penguin</option>
+              <option name="class" value="tomagachi">Tamagochi</option>
             </select>
           </form>
           <br>
@@ -42,27 +42,27 @@
             <label>Object Properties: </label>
               <br>
               <label>Clothes: </label>
-              <select>
-                <option name="clothes" value="dress" checked ng-model="chosen.clothes">Dress</option>
-                <option name="clothes" value="shorts" ng-model="chosen.clothes">Shorts</option>
-                <option name="clothes" value="hat" ng-model="chosen.clothes">Hat</option>
+              <select ng-model="chosen.clothes">
+                <option name="clothes" value="dress">Dress</option>
+                <option name="clothes" value="shorts">Shorts</option>
+                <option name="clothes" value="hat">Hat</option>
               </select>
               <label>Size: </label>
-              <select>
-                <option name="size" value="small" checked ng-model="chosen.size">Small</option>
-                <option name="size" value="medium" ng-model="chosen.size">Medium</option>
-                <option name="size" value="large" ng-model="chosen.size">Large</option>
+              <select ng-model="chosen.size">
+                <option name="size" value="small">Small</option>
+                <option name="size" value="medium">Medium</option>
+                <option name="size" value="large">Large</option>
               </select>
               <label>Color: </label>
-              <select>
-                <option name="color" value="purple" checked>Purple</option>
+              <select ng-model="chosen.color">
+                <option name="color" value="purple">Purple</option>
                 <option name="color" value="blue">Blue</option>
                 <option name="color" value="green">Green</option>
               </select>
           </form>
           <form>
             <label>Functions: </label>
-            <select>
+            <select ng-model="chosen.function">
               <option name="fnction" value="walk">Walk</option>
               <option name="fnction" value="run">Run</option>
               <option name="fnction" value="bounce">Bounce</option>
