@@ -13,9 +13,9 @@ function settings() {
         scope.chosen =  {
           class: '',
           name: '',
-          clothes:'',
-          size: '',
-          color: '',
+          clothes: [dress, shorts, hat],
+          size: [small, medium, large],
+          color: [purple, blue, green],
           fnc: ''
         };
     }
@@ -24,11 +24,8 @@ function settings() {
 
 app.directive('workShop', [workShop]);
 
-<<<<<<< HEAD
-=======
 function getImgUrl
 
->>>>>>> 5aeac2f4f996c9842d6b350dd64bd24c9f8fcca9
 function workShop() {
   return {
     restrict: 'E',
@@ -49,20 +46,17 @@ function workShop() {
       };
 
       scope.robotStates = {
-<<<<<<< HEAD
         original: 'static-img-url-{{color}}.png',
         dancing: 'dancing-img-url-{{color}}.gif'
       };
 
       scope.compileUrl = function (url) {
         return url.replace(/\{\{color\}\}/g, scope.robot.color);
-=======
         'original': scope.compileUrl('still/{{color}}{{size}}'),
         'danceing': scope.compileUrl('dancing/{{color}}{{size}}'),
         'running': scope.compileUrl('running/{{color}}{{size}}'),
         'walking': scope.compileUrl('walking/{{color}}{{size}}'),
         'bouncing': scope.compileUrl('bouncing/{{color}}{{size}}')
->>>>>>> 5aeac2f4f996c9842d6b350dd64bd24c9f8fcca9
       };
 
       scope.robot.currentState = scope.compileUrl(scope.robotStates['dancing']);

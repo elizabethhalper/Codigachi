@@ -26,44 +26,39 @@
           <form>
             <label>Class: </label>
             <select>
-              <option name="class" value="robot">Robot</option>
-              <option name="class" value="puppy">Puppy</option>
-              <option name="class" value="penguin">Penguin</option>
-              <option name="class" value="tomagachi">Tomgachi</option>
+              <option name="class" value="robot" ng-model="chosen.class">Robot</option>
+              <option name="class" value="puppy" ng-model="chosen.class">Puppy</option>
+              <option name="class" value="penguin" ng-model="chosen.class">Penguin</option>
+              <option name="class" value="tomagachi" ng-model="chosen.class">Tomgachi</option>
             </select>
           </form>
           <br>
           <form>
             <label>Object name: </label>"
-              <input type='text' name = 'var_name' ng-model="name"/>
+              <input type='text' name = 'var_name' ng-model="chosen.name"/>
         	    <!--input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>"/-->
           </form>
           <form>
             <label>Object Properties: </label>
               <br>
               <label>Clothes: </label>
-              <br>
-              <input type="radio" name="clothes" value="dress" checked>Dress</input>
-              <br>
-              <input type="radio" name="clothes" value="shorts">Shorts</input>
-              <br>
-              <input type="radio" name="clothes" value="hat">Hat</input>
-              <br>
+              <select>
+                <option name="clothes" value="dress" checked ng-model="chosen.clothes">Dress</option>
+                <option name="clothes" value="shorts" ng-model="chosen.clothes">Shorts</option>
+                <option name="clothes" value="hat" ng-model="chosen.clothes">Hat</option>
+              </select>
               <label>Size: </label>
-              <br>
-              <input type="radio" name="size" value="small" checked>Small</input>
-              <br>
-              <input type="radio" name="size" value="medium">Medium</input>
-              <br>
-              <input type="radio" name="size" value="large">Large</input>
-              <br>
+              <select>
+                <option name="size" value="small" checked ng-model="chosen.size">Small</option>
+                <option name="size" value="medium" ng-model="chosen.size">Medium</option>
+                <option name="size" value="large" ng-model="chosen.size">Large</option>
+              </select>
               <label>Color: </label>
-              <br>
-              <input type="radio" name="color" value="purple" checked>Purple</input>
-              <br>
-              <input type="radio" name="color" value="blue">Blue</input>
-              <br>
-              <input type="radio" name="color" value="green">Green</input>
+              <select>
+                <option name="color" value="purple" checked>Purple</option>
+                <option name="color" value="blue">Blue</option>
+                <option name="color" value="green">Green</option>
+              </select>
           </form>
           <form>
             <label>Functions: </label>
@@ -82,7 +77,7 @@
 
       <work-shop>
         <div class="col-md-6">
-<<<<<<< HEAD
+
            <div class="bckgrnd"></div>
             <h2>Site Overview</h2>
 
