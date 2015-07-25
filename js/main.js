@@ -1,4 +1,4 @@
-var app = angular.module('codeigatchi', []);
+var app = angular.module('codigachi', []);
 
 app.controller('sharedCtrl', ['$scope', sharedCtrl]);
 function sharedCtrl(scope) {
@@ -10,7 +10,14 @@ function settings() {
   return {
     restrict: 'E',
     link: function(scope, element, attrs) {
-        scope.name = "Lizzie";
+        scope.chosen =  {
+          class: '',
+          name: '',
+          clothes: [dress, shorts, hat],
+          size: [small, medium, large],
+          color: [purple, blue, green],
+          fnc: ''
+        };
     }
   };
 }
@@ -43,7 +50,17 @@ function workShop() {
         'bouncing': scope.compileUrl('bouncing/{{color}}{{size}}')
       };
 
+      scope.compileUrl = function (url) {
+        return url.replace(/\{\{color\}\}/g, scope.robot.color);
+      };
+
       scope.robot.currentState = scope.robotStates['original'];
+
+
+      scope.engineer = {
+        currentState: 'a url to the image for the engineer!!',
+        currentPosition: [0, 0]
+      };
 
     }
   };
@@ -57,4 +74,6 @@ function codeView() {
 
     }
   };
+
+  app.service()
 }
