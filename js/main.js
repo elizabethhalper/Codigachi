@@ -1,18 +1,17 @@
 var app = angular.module('codigachi', []);
 
-app.factory('settingsSrv', [function() {
+app.factory('settingsSrv', function() {
   var settings = {};
 
   return {
     set: function (options) {
-      console.log('yay!');
       settings = options;
     },
     get: function () {
       return settings;
     }
   };
-}]);
+});
 
 app.controller('sharedCtrl', ['$scope', sharedCtrl]);
 function sharedCtrl(scope) {
@@ -20,11 +19,11 @@ function sharedCtrl(scope) {
 }
 
 app.directive('settings', [settings]);
-settings.$inject = ['settingsSrv'];
-function settings(settingsSrv) {
+settings.$inject = [''];
+function settings() {
   return {
     restrict: 'E',
-    link: function(scope, element, attrs) {
+    controller: ['$scope', 'settingsSrv', function(scope, settingsSrv) {
       scope.chosen =  {
         cls: '',
         name: '',
@@ -34,12 +33,10 @@ function settings(settingsSrv) {
         fnc: ''
       };
 
-      console.log(settingsSrv);
-
       scope.$watch('chosen', function(newVal, oldVal) {
         settingsSrv.set(newVal);
       }, true);
-    }
+    }]
   };
 }
 
