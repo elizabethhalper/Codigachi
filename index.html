@@ -21,7 +21,33 @@
       <div class="row">
         <div class="col-sm-3">
           <h2>Technology Connects</h2>
-          </br>
+          <br>
+          <form>
+            <label>Class: </label>
+            <select>
+              <option value="robot">Robot</option>
+              <option value="puppy">Puppy</option>
+              <option value="penguin">Penguin</option>
+              <option value="tomagachi">Tomgachi</option>
+            </select>
+          </form>
+          <br>
+          <form>
+            <label>Object name: </label>
+              <input type='text' name = 'body' />
+        	    <input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>"/>
+        	    <input type="submit" value="Submit"/>
+          </form>
+          <form>
+            <label>Object Properties: </label>
+              <br>
+              <label>Clothes </label>
+              <input type="radio" name="dress" value="dress" checked>Dress
+              <br>
+              <input type="radio" name="shorts" value="shorts">Shorts
+              <br>
+              <input type="radio" name="hat" value="hat">Hat
+          </form>
           <p align="center">Feel free to follow, collaborate, and connect!</p>
           <p align="center"><a class="btn btn-social-icon btn-twitter" href="https://twitter.com/BittyByteBot"><i class="fa fa-twitter"></i></a>
           <a class="btn btn-social-icon btn-twitter" href="https://github.com/TRMassey"><i class="fa fa-github-square"></i></a>
@@ -46,7 +72,7 @@
         </div>
       </div>
     </div>
- 
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
