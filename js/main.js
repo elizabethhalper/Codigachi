@@ -20,6 +20,20 @@ function workShop() {
   return {
     restrict: 'E',
     link: function(scope, element, attrs) {
+      scope.robot = {
+        currentState: '',
+        currentPosition: [0, 0],
+        color: 'red'
+      };
+
+      scope.robotStates = {
+        'static': 'url',
+        'dancing': function () {
+          return 'other url/' + scope.robot.color + '/asdf';
+        },
+      };
+
+      scope.robot.currentState = scope.robotStates['dancing']();
 
     }
   };
