@@ -21,7 +21,6 @@ function workShop() {
   return {
     restrict: 'E',
     link: function(scope, element, attrs) {
-
       scope.robot = {
         currentState: '',
         currentPosition: [0, 0],
@@ -29,11 +28,15 @@ function workShop() {
       };
 
       scope.robotStates = {
-        'static': 'url',
-        'dancing': 'url/{{color}}/asdfasdf',
+        original: 'static-img-url-{{color}}.png',
+        dancing: 'dancing-img-url-{{color}}.gif'
       };
 
-      scope.robot.currentState = compileUrl(scope.robotStates['dancing']);
+      scope.compileUrl = function (url) {
+        return url.replace(/\{\{color\}\}/g, scope.robot.color);
+      };
+
+      scope.robot.currentState = scope.compileUrl(scope.robotStates['dancing']);
 
 
       scope.engineer = {
