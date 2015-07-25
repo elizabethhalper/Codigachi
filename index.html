@@ -46,12 +46,14 @@
                 <option name="clothes" value="shorts">Shorts</option>
                 <option name="clothes" value="hat">Hat</option>
               </select>
+              <br>
               <label>Size: </label>
               <select ng-model="chosen.size">
                 <option name="size" value="small">Small</option>
                 <option name="size" value="medium">Medium</option>
                 <option name="size" value="large">Large</option>
               </select>
+              <br>
               <label>Color: </label>
               <select ng-model="chosen.color">
                 <option name="color" value="purple">Purple</option>
@@ -61,10 +63,9 @@
           </form>
           <form>
             <label>Functions: </label>
-            <select ng-model="chosen.fnc" ng-options="label for name in array">
+            <select ng-model="chosen.selectedFunc" ng-options="func as func for func in funcs">
             </select>
           </form>
-          <p align="center"><a class="btn btn-social-icon btn-twitter" href="https://twitter.com/BittyByteBot"><i class="fa fa-twitter"></i></a>
         </p>
       </div>
     </settings>

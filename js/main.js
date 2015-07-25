@@ -23,7 +23,7 @@ settings.$inject = [''];
 function settings() {
   return {
     restrict: 'E',
-    controller: ['$scope', 'settingsSrv', function(scope, settingsSrv) {
+    controller: ['$rootScope', '$scope', 'settingsSrv', function(rootScope, scope, settingsSrv) {
       scope.chosen =  {
         selectedClass: { id: 0, name: 'Humanoid'},
         classes: [
@@ -35,8 +35,17 @@ function settings() {
         clothes: ['dress', 'shorts', 'hat'],
         size: ['small', 'medium', 'large'],
         color: ['purple', 'blue', 'green'],
-        fnc: {id: 0, name: 'Dance'}
+        selectedFunc: ''
       };
+
+      rootScope.funcs = [
+        'Stand',
+        'Dance'
+      ];
+
+      scope.chosen.funcs = rootScope.funcs;
+
+      scope.chosen.selectedFunc = scope.chosen.funcs[0];
 
       scope.$watch('chosen', function(newVal, oldVal) {
         settingsSrv.set(newVal);
@@ -45,8 +54,7 @@ function settings() {
   };
 }
 
-app.directive('workShop', [workShop]);
-function workShop() {
+app.directive('workShop', ['settingsSrv', function workShop(settingsSrv) {
   return {
     restrict: 'E',
     link: function(scope, element, attrs) {
@@ -73,9 +81,19 @@ function workShop() {
         currentPosition: [0, 0]
       };
 
+      scope.$watch(function() { return settingsSrv.get(); }, function(newVal, oldVal) {
+        if (newVal.selectedFunc === 'Stand') {
+          console.log('Your adorable humanoid is standing perfectly still');
+          scope.robot.currentState = scope.robotStates['original'];
+        } else {
+          console.log('Your adorable humanoid is dancing!!!');
+          scope.robot.currentState = scope.robotStates['dancing'];
+        }
+      }, true);
+
     }
   };
-}
+}]);
 
 app.directive('codeView', [codeView]);
 function codeView() {
