@@ -1974,13 +1974,14 @@ pre code {
     padding-right: 0;
     padding-bottom: 0;
     padding-top: 0;
-  }
-
-  .col-md-6 .bckgrnd {
+	
     background: url(http://i57.tinypic.com/2lxbl92.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left;
+  }
+
+  .col-md-6 .bckgrnd {
     margin-bottom: 0;
     margin-top: 0;
     margin-right: 0;
