@@ -28,12 +28,6 @@ function workShop() {
     restrict: 'E',
     link: function(scope, element, attrs) {
 
-      scope.compileUrl = function(url) {
-        return url.replace(/\{\{color\}\}/gi, scope.robot.color);
-                  // .replace(/\{\{size\}\}/gi, scope.robot.size)
-                  // .replace(/\{\{clothes\}\}/gi, scope.robot.clothes);
-      };
-
       scope.robot = {
         currentState: '',
         currentPosition: [0, 0],
@@ -50,8 +44,10 @@ function workShop() {
         'bouncing': scope.compileUrl('bouncing/{{color}}{{size}}')
       };
 
-      scope.compileUrl = function (url) {
-        return url.replace(/\{\{color\}\}/g, scope.robot.color);
+      scope.compileUrl = function(url) {
+        return url.replace(/\{\{color\}\}/gi, scope.robot.color);
+                  // .replace(/\{\{size\}\}/gi, scope.robot.size)
+                  // .replace(/\{\{clothes\}\}/gi, scope.robot.clothes);
       };
 
       scope.robot.currentState = scope.robotStates['original'];
@@ -74,6 +70,4 @@ function codeView() {
 
     }
   };
-
-  app.service()
 }
