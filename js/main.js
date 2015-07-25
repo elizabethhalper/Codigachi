@@ -52,7 +52,6 @@ function workShop() {
 
       scope.robot.currentState = scope.robotStates['original'];
 
-
       scope.engineer = {
         currentState: 'a url to the image for the engineer!!',
         currentPosition: [0, 0]
