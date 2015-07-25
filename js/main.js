@@ -9,7 +9,9 @@ app.directive('settings', [settings]);
 function settings() {
   return {
     restrict: 'E',
-    template: '<div>here\'s the settings</div>'
+    link: function(scope, element, attrs) {
+
+    }
   };
 }
 
@@ -17,8 +19,9 @@ app.directive('workShop', [workShop]);
 function workShop() {
   return {
     restrict: 'E',
-    template: '<div>this is where the workshop will go</div>',
-    controller: ''
+    link: function(scope, element, attrs) {
+      
+    }
   };
 }
 
@@ -26,6 +29,8 @@ app.directive('codeView', [codeView]);
 function codeView() {
   return {
     restrict: 'E',
-    template: '<div>and here\'s where the code will be</div>'
+    link: function(scope, element, attrs) {
+      
+    }
   };
 }
